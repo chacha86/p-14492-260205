@@ -20,9 +20,12 @@ public class WiseSayingRepository {
         return wiseSaying;
     }
 
+    public boolean delete(int id) {
+        return wiseSayings.removeIf(wiseSaying -> wiseSaying.getId() == id);
+    }
+
     public List<WiseSaying> findListDesc() {
         return wiseSayings.reversed();
     }
-
 
 }
