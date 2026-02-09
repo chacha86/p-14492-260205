@@ -40,6 +40,14 @@ public class Util {
             }
         }
 
+        public static String get(String filePath, String defaultValue) {
+            try {
+                return Files.readString(getPath(filePath));
+            } catch (IOException e) {
+                return defaultValue;
+            }
+        }
+
         public static void touch(String filePath) {
             set(filePath, "");
         }
