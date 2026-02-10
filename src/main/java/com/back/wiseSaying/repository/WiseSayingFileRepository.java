@@ -92,4 +92,11 @@ public class WiseSayingFileRepository {
         return new PageDto(page, pageSize, totalCount, pagedFilteredContent);
     }
 
+    public PageDto findByAuthorContainingDesc(String kw, int page, int pageSize) {
+        List<WiseSaying> filteredContent = findAll().reversed().stream()
+                .filter(w -> w.getAuthor().contains(kw))
+                .toList();
+
+        return pageOf(filteredContent, page, pageSize);
+    }
 }
