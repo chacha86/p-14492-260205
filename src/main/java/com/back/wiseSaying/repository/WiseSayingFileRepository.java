@@ -42,4 +42,7 @@ public class WiseSayingFileRepository {
         return WiseSaying.fromMap(map);
     }
 
+    public void clear() {
+        Util.file.delete("db/wiseSaying");
+    }
 }
